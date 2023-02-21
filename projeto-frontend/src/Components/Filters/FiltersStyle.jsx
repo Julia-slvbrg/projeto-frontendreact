@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const FilterContainer = styled.div`
     min-height: 25em;
-    border: 1px solid black;
+    border: 1px solid #FFFFFF;
     padding: 1em .5em;
+    
 `
 
 export const FilterTitle = styled.h1`
     font-size: 1.5em;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
-    color: #000000;
+    color: #FFFFFF;
 `
 
 export const FormContainer = styled.form`
@@ -24,7 +25,7 @@ export const StyledLabel = styled.label`
     font-size: 1.0em;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    color: #000000;
+    color: #FFFFFF;
 `
 
 export const Input = styled.input`
@@ -33,4 +34,5 @@ export const Input = styled.input`
     height: 1.8em;
     border-radius: .2em;
     border: #202020 solid 1px;
+    padding-left: .5em
 `
