@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 //import styled from "styled-components"
 import { GlobalStyled } from "./GlobalStyled"
 import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
@@ -43,11 +43,24 @@ function App() {
     }
   ];
 
+  const [minFilter, setMinFilter] = useState("");
+  const [maxFilter, setMaxFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState("");
+  const [cart, setCart] = useState("");
+  const [amount, setAmount] = useState("");
+
   return (
     <AppContainer >
       <GlobalStyled/>
       <AsideFilter>
-        <Filters/>
+        <Filters
+          minFilter={minFilter}
+          setMinFilter={setMinFilter}
+          maxFilter={maxFilter}
+          setMaxFilter={setMaxFilter}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
+        />
       </AsideFilter>
       <MainHome>
         <Home
