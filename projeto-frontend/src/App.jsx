@@ -51,12 +51,7 @@ function App() {
       </AsideFilter>
       <MainHome>
         <Home
-          product={productList}
-           /* product1={productList[1]}
-          product2={productList[2]}
-          product3={productList[3]}
-          product4={productList[4]}  */
-          
+          product={productList}          
         />
       </MainHome>
       <AsideCart>

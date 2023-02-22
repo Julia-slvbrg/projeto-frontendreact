@@ -38,8 +38,8 @@ export const RemoveButton = styled.button`
     }
 
     &:active{
-        background-color: purple;
-        color:#A09C9C;
+        background-color: #C0C0C0;
+        color:#000000;
     }
 `
 
