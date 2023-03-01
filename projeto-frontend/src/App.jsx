@@ -9,7 +9,35 @@ import Cart from "./Components/ShoppingCart/Cart/Cart"
 
 function App() {
  
+  //FILTER
+  const [minFilter, setMinFilter] = useState("");
+  const [maxFilter, setMaxFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState("");
 
+  const onChangeMinFilter = (event)=>{
+    if(!isNaN(event.target.value)){
+      setMinFilter(event.target.value)
+    }
+  };
+  console.log(minFilter);
+
+  const onChangeMaxFilter = (event)=>{
+    if(!isNaN(event.target.value)){
+      setMaxFilter(event.target.value)
+    }
+  };
+  console.log(maxFilter);
+
+  const onChangeSearchFilter = (event)=>{
+    setSearchFilter(event.target.value)    
+  };
+  console.log(searchFilter);
+
+  const filterData= {
+    minFilter, onChangeMinFilter, maxFilter, onChangeMaxFilter, searchFilter, onChangeSearchFilter
+  };
+
+  //HOME
   const productList = [
     {
         id: 1,
@@ -43,11 +71,17 @@ function App() {
     }
   ];
 
-  const [minFilter, setMinFilter] = useState("");
-  const [maxFilter, setMaxFilter] = useState("");
-  const [searchFilter, setSearchFilter] = useState("");
+  
   const [cart, setCart] = useState("");
   const [amount, setAmount] = useState("");
+
+  const onClickAddToCart = () =>{
+    setCart()
+    //descobrir como fazer essa função
+  }
+  console.log(cart)
+
+  
 
   return (
     <AppContainer >
@@ -55,20 +89,31 @@ function App() {
       <AsideFilter>
         <Filters
           minFilter={minFilter}
-          setMinFilter={setMinFilter}
-          maxFilter={maxFilter}
-          setMaxFilter={setMaxFilter}
-          searchFilter={searchFilter}
-          setSearchFilter={setSearchFilter}
+          //setMinFilter={setMinFilter}
+          //onChangeMinFilter={onChangeMinFilter}
+          //maxFilter={maxFilter}
+          //setMaxFilter={setMaxFilter}
+          //onChangeMaxFilter={onChangeMaxFilter}
+          //searchFilter={searchFilter}
+          //setSearchFilter={setSearchFilter}
+          //onChangeSearchFilter={onChangeSearchFilter}
+          filterData={filterData}
         />
       </AsideFilter>
       <MainHome>
         <Home
-          product={productList}          
+          product={productList}  
+          cart={cart}
+          onClickAddToCart={onClickAddToCart}   
+          amount={amount}     
         />
       </MainHome>
       <AsideCart>
-        <Cart/>
+        <Cart
+          cart={cart}
+          onClickAddToCart={onClickAddToCart}   
+          amount={amount} 
+        />
       </AsideCart>
       
       
