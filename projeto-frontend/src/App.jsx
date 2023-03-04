@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 //import styled from "styled-components"
 import { GlobalStyled } from "./GlobalStyled"
 import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
@@ -9,7 +9,35 @@ import Cart from "./Components/ShoppingCart/Cart/Cart"
 
 function App() {
  
+  //FILTER
+  const [minFilter, setMinFilter] = useState("");
+  const [maxFilter, setMaxFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState("");
 
+  const onChangeMinFilter = (event)=>{
+    if(!isNaN(event.target.value)){
+      setMinFilter(event.target.value)
+    }
+  };
+  console.log(minFilter);
+
+  const onChangeMaxFilter = (event)=>{
+    if(!isNaN(event.target.value)){
+      setMaxFilter(event.target.value)
+    }
+  };
+  console.log(maxFilter);
+
+  const onChangeSearchFilter = (event)=>{
+    setSearchFilter(event.target.value)    
+  };
+  console.log(searchFilter);
+
+  const filterData= {
+    minFilter, onChangeMinFilter, maxFilter, onChangeMaxFilter, searchFilter, onChangeSearchFilter
+  };
+
+  //HOME
   const productList = [
     {
         id: 1,
@@ -21,7 +49,8 @@ function App() {
         id: 2,
         name: "Kit cerveja e amendoins",
         value: 25.0,
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEi8lcXa7Pzm5ByaYLoMRnWGshqKJ_WH5UQ&usqp=CAU"
+        //imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEi8lcXa7Pzm5ByaYLoMRnWGshqKJ_WH5UQ&usqp=CAU"
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrDrTWcipYhJlXWo77J22BD62AkU0N6WdBQ&usqp=CAU"
     },
     {
         id: 3,
@@ -43,19 +72,49 @@ function App() {
     }
   ];
 
+  
+  const [cart, setCart] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const onClickAddToCart = () =>{
+    setCart()
+    //descobrir como fazer essa função
+  }
+  console.log(cart)
+
+  
+
   return (
     <AppContainer >
       <GlobalStyled/>
       <AsideFilter>
-        <Filters/>
+        <Filters
+          minFilter={minFilter}
+          //setMinFilter={setMinFilter}
+          //onChangeMinFilter={onChangeMinFilter}
+          //maxFilter={maxFilter}
+          //setMaxFilter={setMaxFilter}
+          //onChangeMaxFilter={onChangeMaxFilter}
+          //searchFilter={searchFilter}
+          //setSearchFilter={setSearchFilter}
+          //onChangeSearchFilter={onChangeSearchFilter}
+          filterData={filterData}
+        />
       </AsideFilter>
       <MainHome>
         <Home
-          product={productList}          
+          product={productList}  
+          cart={cart}
+          onClickAddToCart={onClickAddToCart}   
+          amount={amount}     
         />
       </MainHome>
       <AsideCart>
-        <Cart/>
+        <Cart
+          cart={cart}
+          onClickAddToCart={onClickAddToCart}   
+          amount={amount} 
+        />
       </AsideCart>
       
       

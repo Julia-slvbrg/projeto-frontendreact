@@ -50,5 +50,11 @@ export const MainHome = styled.div`
     column-gap: 1.5em;
     row-gap: 1.5em;
     align-items: center;
-    justify-items: stretch;
+    justify-items: stretch; 
+    /* display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap; */
+    
+    //gap: 1em;
+    //width: 50em;
 `

@@ -1,7 +1,9 @@
 import { CartContainer, CartTitle, CartList, Product, RemoveButton } from './CartStyle'
 
 
-export const Cart = () =>{
+export const Cart = (props) =>{
+
+  console.log(props)
 
     return(
         <CartContainer>
