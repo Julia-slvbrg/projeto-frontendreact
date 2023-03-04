@@ -49,7 +49,8 @@ function App() {
         id: 2,
         name: "Kit cerveja e amendoins",
         value: 25.0,
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEi8lcXa7Pzm5ByaYLoMRnWGshqKJ_WH5UQ&usqp=CAU"
+        //imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEi8lcXa7Pzm5ByaYLoMRnWGshqKJ_WH5UQ&usqp=CAU"
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrDrTWcipYhJlXWo77J22BD62AkU0N6WdBQ&usqp=CAU"
     },
     {
         id: 3,
