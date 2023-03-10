@@ -6,10 +6,11 @@ export const AppContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     justify-content: center;
-    grid-gap: 1em;
+    grid-gap: .5em;
     background-image:url('https://images.unsplash.com/photo-1570284613060-766c33850e00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-    background-repeat: no-repeat;
-    background-size: 100vw;
+    background-repeat: repeat;
+    background-size: 100%;
+
 
     
 `

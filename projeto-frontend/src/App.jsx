@@ -5,6 +5,7 @@ import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
 import Filters from "./Components/Filters/Filters"
 import Home from "./Components/ProductList/Home/Home"
 import Cart from "./Components/ShoppingCart/Cart/Cart"
+import { PorductInfo } from "./Components/ProductList/ProductCard/ProductCardStyle"
 
 
 function App() {
@@ -14,28 +15,26 @@ function App() {
   const [maxFilter, setMaxFilter] = useState("");
   const [searchFilter, setSearchFilter] = useState("");
 
-  const onChangeMinFilter = (event)=>{
-    if(!isNaN(event.target.value)){
-      setMinFilter(event.target.value)
+  const handleMinFilter = (e) => {
+    if(!isNaN(e.target.value)){
+      setMinFilter(e.target.value)
     }
   };
-  console.log(minFilter);
+  //console.log(minFilter);
 
-  const onChangeMaxFilter = (event)=>{
-    if(!isNaN(event.target.value)){
-      setMaxFilter(event.target.value)
+  const handleMaxFilter = (e) => {
+    if(!isNaN(e.target.value)){
+      setMaxFilter(e.target.value)
     }
   };
-  console.log(maxFilter);
+  //console.log(maxFilter);
 
-  const onChangeSearchFilter = (event)=>{
-    setSearchFilter(event.target.value)    
+  const handleSearchFilter = (e) => {
+    setSearchFilter(e.target.value)    
   };
-  console.log(searchFilter);
+  //console.log(searchFilter);
 
-  const filterData= {
-    minFilter, onChangeMinFilter, maxFilter, onChangeMaxFilter, searchFilter, onChangeSearchFilter
-  };
+  
 
   //HOME
   const productList = [
@@ -49,7 +48,6 @@ function App() {
         id: 2,
         name: "Kit cerveja e amendoins",
         value: 25.0,
-        //imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEi8lcXa7Pzm5ByaYLoMRnWGshqKJ_WH5UQ&usqp=CAU"
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrDrTWcipYhJlXWo77J22BD62AkU0N6WdBQ&usqp=CAU"
     },
     {
@@ -72,15 +70,101 @@ function App() {
     }
   ];
 
-  
-  const [cart, setCart] = useState("");
-  const [amount, setAmount] = useState("");
+  const getProductDataId = (id) => {
+    let productData = productList.find(product => product.id === id);
 
-  const onClickAddToCart = () =>{
-    setCart()
+    if(productData == undefined){
+      console.log("Produto com o id " +id+ " não encontrado")
+      return undefined
+    };
+
+    //console.log(productData)
+    return productData
+  };
+
+  
+  //CARRINHO
+  const [cart, setCart] = useState([]); //carrinho de produtos
+  const [amount, setAmount] = useState(); //aqui é o valor total da compra
+
+
+  const checkProductsInCart = (id) => {
+    const productInCart = cart.find(product => { //aqui foi usado o find para que o retorno seja um objeto, não um array. O find retorna a primeira coisa que dá um match com a condição, o filter retorna a coisa que deu match dentro de um array
+      
+      if(product.id === id){
+        return product
+      }else{
+        return undefined
+      };
+    });
+  return productInCart
+  };
+
+  const addToCart = (idProduct) => {
+    const isInCart = checkProductsInCart(idProduct);
+
+    if(!isInCart){ //se o produto NÃO estiver no carrinho
+      const productData = getProductDataId(idProduct);
+      setCart([
+        ...cart,
+        {
+          id: productData.id,
+          name: productData.name,
+          quantity: 1
+        }
+      ]);
+    }else{ // se o produto JÁ estiver no carrinho
+      setCart(
+        cart.map(productInCart =>
+          productInCart.id === idProduct?
+          {...productInCart, quantity: productInCart.quantity + 1} 
+          : productInCart  
+        )
+      );
+    }
+  };
+  console.log(cart);
+
+
+  const removeOneFromCart = (id) => {
+    const quantity = checkProductsInCart(id);
+
+    if(quantity.id == 1){
+      deleteFromCart(id);
+    }else{
+      setCart(
+        cart.map(
+          product=> 
+          product.id === id?
+          {...product, quantity: product.quantity - 1}
+          : product
+        )
+      )
+    }
+  }
+
+  const deleteFromCart = (id) => {
+    setCart(
+      cart.filter(product => {
+        return product.id != id;
+      })
+    )
+  }
+
+  const getTotalAmount = () => {
+    cart.map(cardItem => {
+      const productData = getProductDataId(cardItem.id);
+      setAmount(amount + productData.value*cardItem.quantity);
+    });
+  }
+
+
+
+  const onClickAddToCart = (e) => {
+    //const cartItems = cart.find
     //descobrir como fazer essa função
   }
-  console.log(cart)
+  //console.log(cart)
 
   
 
@@ -90,23 +174,22 @@ function App() {
       <AsideFilter>
         <Filters
           minFilter={minFilter}
-          //setMinFilter={setMinFilter}
-          //onChangeMinFilter={onChangeMinFilter}
-          //maxFilter={maxFilter}
-          //setMaxFilter={setMaxFilter}
-          //onChangeMaxFilter={onChangeMaxFilter}
-          //searchFilter={searchFilter}
-          //setSearchFilter={setSearchFilter}
-          //onChangeSearchFilter={onChangeSearchFilter}
-          filterData={filterData}
+          setMinFilter={setMinFilter}
+          handleMinFilter={handleMinFilter}
+          maxFilter={maxFilter}
+          setMaxFilter={setMaxFilter}
+          handleMaxFilter={handleMaxFilter}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
+          handleSearchFilter={handleSearchFilter} 
         />
       </AsideFilter>
       <MainHome>
         <Home
-          product={productList}  
+          productList={productList}  
           cart={cart}
-          onClickAddToCart={onClickAddToCart}   
-          amount={amount}     
+          addToCart={addToCart} 
+          amount={amount}
         />
       </MainHome>
       <AsideCart>
@@ -125,38 +208,4 @@ function App() {
 export default App
 
 
-/* 
 
-
-      <aside className="filter">
-        <Filters/>
-      </aside>
-      <main>
-        <Home/>
-      </main>
-      <aside className="cart">
-        <Cart/>
-      </aside>
-      </body>
-
-
-
-*/
-
-
-
-/* 
- <AsideFilter className="filter">
-        <Filters/>
-      </AsideFilter>
-      <MainHome>
-        <Home/>
-      </MainHome>
-      <AsideCart className="cart">
-        <Cart/>
-      </AsideCart>
-      
-
-
-
-*/

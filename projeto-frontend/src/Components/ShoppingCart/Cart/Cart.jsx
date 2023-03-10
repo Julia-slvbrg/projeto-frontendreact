@@ -3,7 +3,7 @@ import { CartContainer, CartTitle, CartList, Product, RemoveButton } from './Car
 
 export const Cart = (props) =>{
 
-  console.log(props)
+  //console.log(props)
 
     return(
         <CartContainer>
