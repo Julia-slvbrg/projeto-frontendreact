@@ -39,9 +39,7 @@ export const Home = ( props ) => {
                             />
                     );
                 })};
-               
             </MainHome>
-             
         </HomeContainer>
        
     )

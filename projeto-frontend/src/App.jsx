@@ -85,7 +85,9 @@ function App() {
   
   //CARRINHO
   const [cart, setCart] = useState([]); //carrinho de produtos
-  const [amount, setAmount] = useState(); //aqui é o valor total da compra
+  const [amount, setAmount] = useState(0); //aqui é o valor total da compra
+
+  console.log(typeof amount)
 
 
   const checkProductsInCart = (id) => {
@@ -110,6 +112,7 @@ function App() {
         {
           id: productData.id,
           name: productData.name,
+          value: productData.value,
           quantity: 1
         }
       ]);
@@ -124,49 +127,44 @@ function App() {
     }
   };
   console.log(cart);
+  console.log(typeof cart[0].value)
 
 
-  const removeOneFromCart = (id) => {
-    const quantity = checkProductsInCart(id);
+  const removeOneFromCart = (idProduct) => {
+    const productInCart = checkProductsInCart(idProduct);
 
-    if(quantity.id == 1){
-      deleteFromCart(id);
+    if(productInCart.quantity == 1){
+      deleteFromCart(idProduct);
     }else{
       setCart(
         cart.map(
           product=> 
-          product.id === id?
+          product.id === idProduct?
           {...product, quantity: product.quantity - 1}
           : product
-        )
-      )
+      ));
     }
   }
 
-  const deleteFromCart = (id) => {
+  const deleteFromCart = (idProduct) => {
     setCart(
       cart.filter(product => {
-        return product.id != id;
+        return product.id != idProduct;
       })
     )
   }
 
   const getTotalAmount = () => {
-    cart.map(cardItem => {
-      const productData = getProductDataId(cardItem.id);
-      setAmount(amount + productData.value*cardItem.quantity);
-    });
+    //const productData = getProductDataId(idProduct);
+    
+    setAmount(
+      cart.value
+    )
+    
+    
   }
 
 
-
-  const onClickAddToCart = (e) => {
-    //const cartItems = cart.find
-    //descobrir como fazer essa função
-  }
-  //console.log(cart)
-
-  
 
   return (
     <AppContainer >
@@ -195,8 +193,9 @@ function App() {
       <AsideCart>
         <Cart
           cart={cart}
-          onClickAddToCart={onClickAddToCart}   
+          removeOneFromCart={removeOneFromCart}   
           amount={amount} 
+          getTotalAmount={getTotalAmount}
         />
       </AsideCart>
       

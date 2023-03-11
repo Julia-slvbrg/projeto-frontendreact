@@ -3,16 +3,42 @@ import { CartContainer, CartTitle, CartList, Product, RemoveButton } from './Car
 
 export const Cart = (props) =>{
 
-  //console.log(props)
+  const { cart, removeOneFromCart, amount, getTotalAmount } = props
+  
+
+/*  const renderAmount = () =>{
+    if(cart.length > 0){
+      //getTotalAmount()
+      console.log(amount)
+      return(
+        <CartTitle>Total: R$ {amount}</CartTitle>
+      )
+    }
+
+  }  */
+//renderAmount()
+
 
     return(
-        <CartContainer>
-            <CartTitle>Carrinho</CartTitle>
-            <CartList>
-                <Product>1 x </Product>
+      <CartContainer>
+      <CartTitle>Carrinho</CartTitle>
+           
+      {cart.map((productInCart, index)=>{
+        return(
+          <CartList key={index}>
+          <Product>{productInCart.quantity} x {productInCart.name}</Product>
+          <Product></Product>
+          <RemoveButton onClick={()=> removeOneFromCart(productInCart.id)}>Remover</RemoveButton>
+          </CartList>
+        );
+      })}
+
+      <CartTitle>Total: R$ {}</CartTitle>
+
+                {/* <Product>1 x </Product>
                 <Product>Produto</Product> 
-                <RemoveButton>Remover</RemoveButton>
-            </CartList>
+                <RemoveButton onClick={()=> removeOneFromCart()}>Remover</RemoveButton> */}
+            
             
 
             

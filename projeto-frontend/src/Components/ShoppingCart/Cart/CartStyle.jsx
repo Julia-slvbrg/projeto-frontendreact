@@ -14,11 +14,16 @@ export const CartTitle = styled.h1`
 `
 
 export const CartList = styled.div`
-    display: grid;
-    grid-template-columns: .5fr 1fr 1fr;
+    /* display: grid;
+    grid-template-columns:  1fr 1fr;
     grid-template-rows: repeat(1, 1fr);
     align-items: center;
-    margin-top: 1em;
+    margin-top: 1em; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em 0;
+    //border: 1px #FFFFFF solid;
 `
 
 export const Product = styled.p`
