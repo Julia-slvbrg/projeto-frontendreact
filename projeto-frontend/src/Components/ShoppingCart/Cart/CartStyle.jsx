@@ -42,11 +42,12 @@ export const RemoveButton = styled.button`
     }
 `
 
-export const Amount = styled.h3` 
+export const Amount = styled.p` 
     font-size: 1.3em;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
     color: #FFFFFF;
+    margin-top: 1.5em;
 `
 
 

@@ -56,6 +56,6 @@ export const AddButon = styled.button`
     border-radius: .4em;
     border-color: gray;
     :hover{
-        background-color: #80808085;
+        background-color: #C2D0D0;
     }
 `

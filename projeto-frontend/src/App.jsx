@@ -10,11 +10,14 @@ import { PorductInfo } from "./Components/ProductList/ProductCard/ProductCardSty
 
 function App() {
  
-  //FILTER
+  //States
   const [minFilter, setMinFilter] = useState("");
   const [maxFilter, setMaxFilter] = useState("");
   const [searchFilter, setSearchFilter] = useState("");
+  const [cart, setCart] = useState([]); //carrinho de produtos
+  const [amount, setAmount] = useState(0); //aqui é o valor total da compra
 
+  //FILTER
   const handleMinFilter = (e) => {
     if(!isNaN(e.target.value)){
       setMinFilter(e.target.value)
@@ -84,9 +87,6 @@ function App() {
 
   
   //CARRINHO
-  const [cart, setCart] = useState([]); //carrinho de produtos
-  const [amount, setAmount] = useState(0); //aqui é o valor total da compra
-
 
   const checkProductsInCart = (id) => {
     const productInCart = cart.find(product => { //aqui foi usado o find para que o retorno seja um objeto, não um array. O find retorna a primeira coisa que dá um match com a condição, o filter retorna a coisa que deu match dentro de um array
