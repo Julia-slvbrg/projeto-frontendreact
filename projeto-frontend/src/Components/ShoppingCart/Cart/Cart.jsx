@@ -1,26 +1,15 @@
-import { CartContainer, CartTitle, CartList, Product, RemoveButton } from './CartStyle'
+import { CartContainer, CartTitle, CartList, Product, RemoveButton, Amount } from './CartStyle'
 
 
 export const Cart = (props) =>{
 
-  const { cart, removeOneFromCart, amount, getTotalAmount } = props
+  const { cart, removeOneFromCart, amount } = props;
+
+  const amountRender = amount.toFixed(2).toString().replace('.', ',');
   
 
-/*  const renderAmount = () =>{
-    if(cart.length > 0){
-      //getTotalAmount()
-      console.log(amount)
-      return(
-        <CartTitle>Total: R$ {amount}</CartTitle>
-      )
-    }
-
-  }  */
-//renderAmount()
-
-
-    return(
-      <CartContainer>
+  return(
+    <CartContainer>
       <CartTitle>Carrinho</CartTitle>
            
       {cart.map((productInCart, index)=>{
@@ -33,18 +22,9 @@ export const Cart = (props) =>{
         );
       })}
 
-      <CartTitle>Total: R$ {}</CartTitle>
-
-                {/* <Product>1 x </Product>
-                <Product>Produto</Product> 
-                <RemoveButton onClick={()=> removeOneFromCart()}>Remover</RemoveButton> */}
-            
-            
-
-            
-        </CartContainer>
-        
-    )
+      <Amount>Total: R${amountRender}</Amount>          
+    </CartContainer>     
+  )
 }
 
 export default Cart

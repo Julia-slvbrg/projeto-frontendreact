@@ -53,13 +53,13 @@ function App() {
     {
         id: 3,
         name: "O Guia do Mochileiro das Galáxias",
-        value: 250.0,
+        value: 254.47,
         imageUrl: "https://i.ebayimg.com/images/g/cv8AAOSwuCVgzCKQ/s-l1600.jpg"
     },
     {
         id: 4,
         name: "Peixe Babel",
-        value: 650.0,
+        value: 651.99,
         imageUrl: "https://cdn.shopify.com/s/files/1/0119/0671/1652/products/IMG_8152_1400x.JPG?v=1546712552"
     },
     {
@@ -87,8 +87,6 @@ function App() {
   const [cart, setCart] = useState([]); //carrinho de produtos
   const [amount, setAmount] = useState(0); //aqui é o valor total da compra
 
-  console.log(typeof amount)
-
 
   const checkProductsInCart = (id) => {
     const productInCart = cart.find(product => { //aqui foi usado o find para que o retorno seja um objeto, não um array. O find retorna a primeira coisa que dá um match com a condição, o filter retorna a coisa que deu match dentro de um array
@@ -99,7 +97,7 @@ function App() {
         return undefined
       };
     });
-  return productInCart
+    return productInCart
   };
 
   const addToCart = (idProduct) => {
@@ -116,6 +114,7 @@ function App() {
           quantity: 1
         }
       ]);
+      getTotalAmountAdding(idProduct);
     }else{ // se o produto JÁ estiver no carrinho
       setCart(
         cart.map(productInCart =>
@@ -124,17 +123,17 @@ function App() {
           : productInCart  
         )
       );
+      getTotalAmountAdding(idProduct);
     }
   };
-  console.log(cart);
-  console.log(typeof cart[0].value)
-
+  
 
   const removeOneFromCart = (idProduct) => {
     const productInCart = checkProductsInCart(idProduct);
 
     if(productInCart.quantity == 1){
       deleteFromCart(idProduct);
+      getTotalAmountRemoving(idProduct);
     }else{
       setCart(
         cart.map(
@@ -143,6 +142,7 @@ function App() {
           {...product, quantity: product.quantity - 1}
           : product
       ));
+      getTotalAmountRemoving(idProduct);
     }
   }
 
@@ -151,17 +151,18 @@ function App() {
       cart.filter(product => {
         return product.id != idProduct;
       })
-    )
+    );
   }
 
-  const getTotalAmount = () => {
-    //const productData = getProductDataId(idProduct);
-    
-    setAmount(
-      cart.value
-    )
-    
-    
+  const getTotalAmountAdding = (idProduct) => {
+    const productData = getProductDataId(idProduct);
+    setAmount(amount + productData.value);
+  };
+  console.log('amount: ', amount)
+
+  const getTotalAmountRemoving = (idProduct) => {
+    const productData = getProductDataId(idProduct);
+    setAmount(Math.abs(amount - productData.value));
   }
 
 
@@ -195,7 +196,7 @@ function App() {
           cart={cart}
           removeOneFromCart={removeOneFromCart}   
           amount={amount} 
-          getTotalAmount={getTotalAmount}
+          
         />
       </AsideCart>
       

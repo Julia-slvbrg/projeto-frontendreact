@@ -36,9 +36,9 @@ export const Home = ( props ) => {
                             productItem={productItem} 
                             addToCart={addToCart}
                         
-                            />
+                        />
                     );
-                })};
+                })}
             </MainHome>
         </HomeContainer>
        

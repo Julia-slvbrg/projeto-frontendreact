@@ -4,7 +4,8 @@ export const ProductCard = (props) => {
     
     const { productItem, addToCart } = props;
 
-    //console.log(props)
+    const valueRender = productItem.value.toFixed(2).toString().includes('.')? productItem.value.toFixed(2).toString().replace('.', ',') : productItem.value.toFixed(2).toString();
+
     return(
         <ProductCardContainer>
             <ImageContainer>
@@ -13,7 +14,7 @@ export const ProductCard = (props) => {
             
             <PorductInfo>
                 <ProductName>{productItem.name}</ProductName>
-                <ProductPrice>R$ {productItem.value.toFixed(2).toString().includes('.')? productItem.value.toFixed(2).toString().replace('.', ',') : productItem.value.toFixed(2).toString()}</ProductPrice>
+                <ProductPrice>R$ {valueRender}</ProductPrice>
                 <AddButon onClick={()=> addToCart(productItem.id)}>Adicionar ao carrinho</AddButon>
             </PorductInfo>
         </ProductCardContainer>
