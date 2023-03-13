@@ -5,12 +5,10 @@ import { useState } from "react"
 
 export const Home = ( props ) => {
 
-    const { productList, cart, addToCart, amount } = props;
-    
-    const [ordination, setOrdination] = useState("");
+    const { productList, cart, addToCart, amount, productListFiltered } = props;
+    const [ordination, setOrdination] = useState("increasing");
 
     const handleOrdination = (e) => {
-        //console.log(e.target.value)
         setOrdination(e.target.value);
     };
     
@@ -18,10 +16,10 @@ export const Home = ( props ) => {
 
         <HomeContainer>
             <HeaderHome>
-                <ProductQnt>Quantidade de produtos: 5</ProductQnt> {/* essa quantidade é o tanto de produtos que está aparecendo no tela depois de aplicar os filtros*/}
+                <ProductQnt>Quantidade de produtos: {productListFiltered.length}</ProductQnt>
                 <StyledLabel>
                     Ordenação:
-                    <select value={ordination} /* onChange={(e)=>setOrdination(e.target.value)} */ onChange={handleOrdination} >
+                    <select value={ordination} onChange={handleOrdination} >
                         <option value="increasing">Crescente</option>
                         <option value="decreasing">Decrescente</option>
                     </select>
@@ -29,19 +27,24 @@ export const Home = ( props ) => {
             </HeaderHome>
 
             <MainHome>
-                {productList.map((productItem, index) => {
+                {productListFiltered.sort((a, b)=>{
+                    if(ordination === 'increasing'){
+                        return a.value - b.value
+                    };
+                    if(ordination === 'decreasing'){
+                        return b.value - a.value
+                    };
+                }).map((productItem, index) => {
                     return(
                         <ProductCard 
                             key={index} 
                             productItem={productItem} 
                             addToCart={addToCart}
-                        
                         />
                     );
                 })}
             </MainHome>
         </HomeContainer>
-       
     )
 }
 

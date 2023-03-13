@@ -20,19 +20,24 @@ function App() {
   //FILTER
   const handleMinFilter = (e) => {
     if(!isNaN(e.target.value)){
-      setMinFilter(e.target.value)
+      if(e.target.value<0){
+        return
+      };
+      setMinFilter(e.target.value);
     }
   };
-  //console.log(minFilter);
 
   const handleMaxFilter = (e) => {
     if(!isNaN(e.target.value)){
-      setMaxFilter(e.target.value)
+      if(e.target.value<0){
+        return
+      };
+      setMaxFilter(e.target.value);
     }
   };
-  //console.log(maxFilter);
 
   const handleSearchFilter = (e) => {
+    e.preventDefault()
     setSearchFilter(e.target.value)    
   };
   //console.log(searchFilter);
@@ -73,15 +78,19 @@ function App() {
     }
   ];
 
+  const productListFiltered = productList.filter((product)=>{
+    if(!maxFilter){
+      return product.value >= minFilter;
+    }else{
+      return (product.value >= minFilter && product.value <= maxFilter);
+    };
+  }
+  );
+
   const getProductDataId = (id) => {
     let productData = productList.find(product => product.id === id);
 
-    if(productData == undefined){
-      console.log("Produto com o id " +id+ " não encontrado")
-      return undefined
-    };
-
-    //console.log(productData)
+    if(productData == undefined)  return undefined;
     return productData
   };
 
@@ -127,7 +136,6 @@ function App() {
     }
   };
   
-
   const removeOneFromCart = (idProduct) => {
     const productInCart = checkProductsInCart(idProduct);
 
@@ -144,7 +152,7 @@ function App() {
       ));
       getTotalAmountRemoving(idProduct);
     }
-  }
+  };
 
   const deleteFromCart = (idProduct) => {
     setCart(
@@ -152,20 +160,17 @@ function App() {
         return product.id != idProduct;
       })
     );
-  }
+  };
 
   const getTotalAmountAdding = (idProduct) => {
     const productData = getProductDataId(idProduct);
     setAmount(amount + productData.value);
   };
-  console.log('amount: ', amount)
 
   const getTotalAmountRemoving = (idProduct) => {
     const productData = getProductDataId(idProduct);
     setAmount(Math.abs(amount - productData.value));
-  }
-
-
+  };
 
   return (
     <AppContainer >
@@ -189,6 +194,7 @@ function App() {
           cart={cart}
           addToCart={addToCart} 
           amount={amount}
+          productListFiltered={productListFiltered}
         />
       </MainHome>
       <AsideCart>
@@ -196,11 +202,8 @@ function App() {
           cart={cart}
           removeOneFromCart={removeOneFromCart}   
           amount={amount} 
-          
         />
       </AsideCart>
-      
-      
     </AppContainer>
   )
 }

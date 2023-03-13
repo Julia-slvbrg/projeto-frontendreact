@@ -4,6 +4,7 @@ export const Filters = ( filterData ) => {
 
     const { minFilter, handleMinFilter, maxFilter, handleMaxFilter, searchFilter, handleSearchFilter } = filterData;
 
+    //Os inputs estão aceitando valores negativos, perguntar sobre isso
 
     return(
         <FilterContainer>
@@ -14,11 +15,10 @@ export const Filters = ( filterData ) => {
                     <Input 
                         type="number" 
                         min="0" 
-                        oninput="validity.valid||(value='')" //tentar com essas três linhas, se não der certo, tentar condicional na função.
+                        oninput="validity.valid||(value='')" 
                         id="min-price" 
                         value={minFilter} 
                         onChange={handleMinFilter}
-
                     />
                 </StyledLabel>
                 <StyledLabel className="max-price-class" htmlFor="max-price">
@@ -40,10 +40,8 @@ export const Filters = ( filterData ) => {
                         onChange={handleSearchFilter}
                     />
                 </StyledLabel>
-
             </FormContainer>
         </FilterContainer>
-        
     )
 }
 

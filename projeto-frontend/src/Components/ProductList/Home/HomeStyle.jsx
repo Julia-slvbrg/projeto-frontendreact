@@ -51,10 +51,4 @@ export const MainHome = styled.div`
     row-gap: 1.5em;
     align-items: center;
     justify-items: center; 
-    /* display: flex;
-    flex-direction: row;    
-    flex-wrap: wrap; */
-    
-    //gap: 1em;
-    //width: 50em;
 `
