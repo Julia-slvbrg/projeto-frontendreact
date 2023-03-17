@@ -5,7 +5,6 @@ import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
 import Filters from "./Components/Filters/Filters"
 import Home from "./Components/ProductList/Home/Home"
 import Cart from "./Components/ShoppingCart/Cart/Cart"
-import { PorductInfo } from "./Components/ProductList/ProductCard/ProductCardStyle"
 
 
 function App() {
@@ -40,8 +39,7 @@ function App() {
     e.preventDefault()
     setSearchFilter(e.target.value)    
   };
-  //console.log(searchFilter);
-
+  console.log(searchFilter);
   
 
   //HOME
@@ -84,8 +82,11 @@ function App() {
     }else{
       return (product.value >= minFilter && product.value <= maxFilter);
     };
-  }
-  );
+  }).filter((product)=>{
+    return product.name.toLocaleLowerCase().includes(searchFilter.toLocaleLowerCase())
+  });
+
+
 
   const getProductDataId = (id) => {
     let productData = productList.find(product => product.id === id);
@@ -190,7 +191,6 @@ function App() {
       </AsideFilter>
       <MainHome>
         <Home
-          productList={productList}  
           cart={cart}
           addToCart={addToCart} 
           amount={amount}

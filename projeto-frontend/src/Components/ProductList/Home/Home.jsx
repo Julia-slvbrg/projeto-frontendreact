@@ -5,7 +5,7 @@ import { useState } from "react"
 
 export const Home = ( props ) => {
 
-    const { productList, cart, addToCart, amount, productListFiltered } = props;
+    const { cart, addToCart, amount, productListFiltered } = props;
     const [ordination, setOrdination] = useState("increasing");
 
     const handleOrdination = (e) => {
