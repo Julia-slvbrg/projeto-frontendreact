@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 //import styled from "styled-components"
 import { GlobalStyled } from "./GlobalStyled"
-import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
+import { AppContiner, StoreContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
 import Filters from "./Components/Filters/Filters"
 import Home from "./Components/ProductList/Home/Home"
 import Cart from "./Components/ShoppingCart/Cart/Cart"
+import imageHeader from "./Components/img/img.png"
+import Header from "./Components/Header/Header"
 
 
 function App() {
@@ -39,7 +41,7 @@ function App() {
     e.preventDefault()
     setSearchFilter(e.target.value)    
   };
-  console.log(searchFilter);
+
   
 
   //HOME
@@ -174,7 +176,9 @@ function App() {
   };
 
   return (
-    <AppContainer >
+    <AppContiner>    
+      <Header/>
+      <StoreContainer >
       <GlobalStyled/>
       <AsideFilter>
         <Filters
@@ -204,7 +208,8 @@ function App() {
           amount={amount} 
         />
       </AsideCart>
-    </AppContainer>
+    </StoreContainer>
+    </AppContiner>
   )
 }
 

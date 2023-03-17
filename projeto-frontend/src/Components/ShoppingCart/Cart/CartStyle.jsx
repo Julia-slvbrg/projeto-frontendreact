@@ -33,7 +33,7 @@ export const RemoveButton = styled.button`
     border-radius: .4em;
     border-color: gray;
     &:hover{
-        background-color: grey;
+        background-color: #CCC1C1;
     }
 
     &:active{
