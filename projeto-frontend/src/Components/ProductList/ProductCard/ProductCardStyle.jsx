@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ProductCardContainer = styled.div`
     border: 1px solid #FFFFFF;
-    width: 15em;
-    height: 25em;
+    width: 17em;
+    height: 27em;
     display: flex;
     flex-direction: column;
     background-color: #3498DB ;
@@ -13,12 +13,12 @@ export const ProductCardContainer = styled.div`
 
 export const ImageContainer = styled.div`
     height: 21em;
-    width: 15em;
+    width: 17em;
 `
 
 export const Image = styled.img`
-    height: 15em;
-    width: 14.9em;
+    height: 17em;
+    width: 16.9em;
 `
 
 export const PorductInfo = styled.div`
@@ -56,6 +56,6 @@ export const AddButon = styled.button`
     border-radius: .4em;
     border-color: gray;
     :hover{
-        background-color: #80808085;
+        background-color: #C2D0D0;
     }
 `

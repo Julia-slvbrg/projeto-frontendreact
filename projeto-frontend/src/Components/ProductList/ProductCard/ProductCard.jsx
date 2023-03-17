@@ -1,19 +1,21 @@
 import { ProductCardContainer, ImageContainer, Image, PorductInfo, ProductName, ProductPrice, AddButon } from "./ProductCardStyle"
 
-export const ProductCard = (props) =>{
-    //console.log(props.product)
+export const ProductCard = (props) => {
+    
+    const { productItem, addToCart } = props;
 
-    //console.log(props)
+    const valueRender = productItem.value.toFixed(2).toString().includes('.')? productItem.value.toFixed(2).toString().replace('.', ',') : productItem.value.toFixed(2).toString();
+
     return(
         <ProductCardContainer>
             <ImageContainer>
-            <Image src={props.product.imageUrl}/>
+            <Image src={productItem.imageUrl}/>
             </ImageContainer>
             
             <PorductInfo>
-                <ProductName>{props.product.name}</ProductName>
-                <ProductPrice>R$ {props.product.value}</ProductPrice>
-                <AddButon onClick={()=>props.onClickAddToCart}>Adicionar ao carrinho</AddButon>
+                <ProductName>{productItem.name}</ProductName>
+                <ProductPrice>R$ {valueRender}</ProductPrice>
+                <AddButon onClick={()=> addToCart(productItem.id)}>Adicionar ao carrinho</AddButon>
             </PorductInfo>
         </ProductCardContainer>
     )
