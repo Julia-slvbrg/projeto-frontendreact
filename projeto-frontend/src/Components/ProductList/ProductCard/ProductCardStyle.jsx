@@ -33,8 +33,6 @@ export const ProductName = styled.p`
     font-size: 1.2em;
     font-family: 'PT Sans', sans-serif;
     font-weight: 800;
-    //mix-blend-mode: difference;
-    
 `
 
 export const ProductPrice = styled.p`

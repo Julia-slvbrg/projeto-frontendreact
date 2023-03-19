@@ -5,7 +5,7 @@ import { ImageContainer, Image } from "./HeaderStyle"
 export const Header = () => {
     return(
         <ImageContainer>
-            <Image src={imageHeader}/>   
+            <Image className="imageHeader" src={imageHeader} alt="header-img"/>   
         </ImageContainer>
 
     )

@@ -4,7 +4,6 @@ export const Filters = ( filterData ) => {
 
     const { minFilter, handleMinFilter, maxFilter, handleMaxFilter, searchFilter, handleSearchFilter } = filterData;
 
-    //Os inputs estão aceitando valores negativos, perguntar sobre isso
 
     return(
         <FilterContainer>
