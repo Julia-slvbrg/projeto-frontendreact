@@ -5,15 +5,15 @@ import { useState } from "react"
 
 export const Home = ( props ) => {
 
-    const { cart, addToCart, amount, productListFiltered } = props;
+    const { addToCart, productListFiltered, getCurrencyBr } = props;
     const [ordination, setOrdination] = useState("increasing");
 
     const handleOrdination = (e) => {
         setOrdination(e.target.value);
     };
     
-    return(
 
+    return(
         <HomeContainer>
             <HeaderHome>
                 <ProductQnt>Quantidade de produtos: {productListFiltered.length}</ProductQnt>
@@ -24,7 +24,7 @@ export const Home = ( props ) => {
                         <option value="decreasing">Decrescente</option>
                     </select>
                 </StyledLabel>
-            </HeaderHome>
+            </HeaderHome>   
 
             <MainHome>
                 {productListFiltered.sort((a, b)=>{
@@ -40,6 +40,7 @@ export const Home = ( props ) => {
                             key={index} 
                             productItem={productItem} 
                             addToCart={addToCart}
+                            getCurrencyBr={getCurrencyBr}
                         />
                     );
                 })}

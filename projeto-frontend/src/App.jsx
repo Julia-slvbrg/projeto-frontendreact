@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 //import styled from "styled-components"
 import { GlobalStyled } from "./GlobalStyled"
-import { AppContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
+import { AppContainer, StoreContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
 import Filters from "./Components/Filters/Filters"
 import Home from "./Components/ProductList/Home/Home"
 import Cart from "./Components/ShoppingCart/Cart/Cart"
+import imageHeader from "./Components/img/img.png"
+import Header from "./Components/Header/Header"
 
 
 function App() {
@@ -36,12 +38,10 @@ function App() {
   };
 
   const handleSearchFilter = (e) => {
-    e.preventDefault()
     setSearchFilter(e.target.value)    
   };
-  console.log(searchFilter);
-  
 
+  
   //HOME
   const productList = [
     {
@@ -173,9 +173,16 @@ function App() {
     setAmount(Math.abs(amount - productData.value));
   };
 
+  const getCurrencyBr = (value) =>{
+    const currency = value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+    return currency
+  }
+
   return (
-    <AppContainer >
-      <GlobalStyled/>
+    <AppContainer>  
+      <GlobalStyled/>  
+      <Header/>
+      <StoreContainer >
       <AsideFilter>
         <Filters
           minFilter={minFilter}
@@ -195,6 +202,7 @@ function App() {
           addToCart={addToCart} 
           amount={amount}
           productListFiltered={productListFiltered}
+          getCurrencyBr={getCurrencyBr}
         />
       </MainHome>
       <AsideCart>
@@ -202,8 +210,10 @@ function App() {
           cart={cart}
           removeOneFromCart={removeOneFromCart}   
           amount={amount} 
+          getCurrencyBr={getCurrencyBr}
         />
       </AsideCart>
+    </StoreContainer>
     </AppContainer>
   )
 }

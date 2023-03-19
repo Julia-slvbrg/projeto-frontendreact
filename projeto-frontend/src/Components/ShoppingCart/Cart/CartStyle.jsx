@@ -2,7 +2,9 @@ import styled from "styled-components"
 
 export const CartContainer = styled.div` 
     min-height: 25em;
-    border: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
     padding: 1em .5em;
 `
 
@@ -33,7 +35,7 @@ export const RemoveButton = styled.button`
     border-radius: .4em;
     border-color: gray;
     &:hover{
-        background-color: grey;
+        background-color: #CCC1C1;
     }
 
     &:active{

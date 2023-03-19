@@ -2,9 +2,9 @@ import { ProductCardContainer, ImageContainer, Image, PorductInfo, ProductName, 
 
 export const ProductCard = (props) => {
     
-    const { productItem, addToCart } = props;
+    const { productItem, addToCart, getCurrencyBr } = props;
 
-    const valueRender = productItem.value.toFixed(2).toString().includes('.')? productItem.value.toFixed(2).toString().replace('.', ',') : productItem.value.toFixed(2).toString();
+
 
     return(
         <ProductCardContainer>
@@ -14,7 +14,7 @@ export const ProductCard = (props) => {
             
             <PorductInfo>
                 <ProductName>{productItem.name}</ProductName>
-                <ProductPrice>R$ {valueRender}</ProductPrice>
+                <ProductPrice>{getCurrencyBr(productItem.value)}</ProductPrice>
                 <AddButon onClick={()=> addToCart(productItem.id)}>Adicionar ao carrinho</AddButon>
             </PorductInfo>
         </ProductCardContainer>

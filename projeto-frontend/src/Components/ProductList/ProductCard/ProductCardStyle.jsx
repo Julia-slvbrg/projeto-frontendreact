@@ -6,7 +6,7 @@ export const ProductCardContainer = styled.div`
     height: 27em;
     display: flex;
     flex-direction: column;
-    background-color: #3498DB ;
+    background-color: #101010 ;
     justify-items: stretch;
     align-items: stretch;
 `
@@ -25,8 +25,6 @@ export const PorductInfo = styled.div`
     margin: .5em 0 0em .5em;
     display: flex;
     flex-direction: column;
-    //align-items: flex-start;
-    //justify-items: flex-start;
     
 `
 
@@ -35,8 +33,6 @@ export const ProductName = styled.p`
     font-size: 1.2em;
     font-family: 'PT Sans', sans-serif;
     font-weight: 800;
-    //mix-blend-mode: difference;
-    
 `
 
 export const ProductPrice = styled.p`
@@ -56,6 +52,6 @@ export const AddButon = styled.button`
     border-radius: .4em;
     border-color: gray;
     :hover{
-        background-color: #C2D0D0;
+        background-color: #AEA9A9;
     }
 `

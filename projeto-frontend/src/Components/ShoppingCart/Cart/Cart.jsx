@@ -3,10 +3,8 @@ import { CartContainer, CartTitle, CartList, Product, RemoveButton, Amount } fro
 
 export const Cart = (props) =>{
 
-  const { cart, removeOneFromCart, amount } = props;
+  const { cart, removeOneFromCart, amount, getCurrencyBr } = props;
 
-  const amountRender = amount.toFixed(2).toString().replace('.', ',');
-  
 
   return(
     <CartContainer>
@@ -21,8 +19,8 @@ export const Cart = (props) =>{
           </CartList>
         );
       })}
-
-      <Amount>Total: R${amountRender}</Amount>          
+         
+      <Amount>Total: {getCurrencyBr(amount)}</Amount>   
     </CartContainer>     
   )
 }

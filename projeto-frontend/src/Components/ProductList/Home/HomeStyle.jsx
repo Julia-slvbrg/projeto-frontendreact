@@ -38,7 +38,7 @@ export const StyledLabel = styled.label`
         margin-left: .5em;
 
         &:hover{
-            background-color: #C2D0D0;
+            background-color: #CCC1C1;
         }
     }
 `
