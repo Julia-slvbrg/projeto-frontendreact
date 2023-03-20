@@ -1,22 +1,28 @@
-import { CartContainer, CartTitle, CartList, Product, RemoveButton } from './CartStyle'
+import { CartContainer, CartTitle, CartList, Product, RemoveButton, Amount } from './CartStyle'
 
 
-export const Cart = () =>{
+export const Cart = (props) =>{
 
-    return(
-        <CartContainer>
-            <CartTitle>Carrinho</CartTitle>
-            <CartList>
-                <Product>1 x </Product>
-                <Product>Produto</Product> 
-                <RemoveButton>Remover</RemoveButton>
-            </CartList>
-            
+  const { cart, removeOneFromCart, amount, getCurrencyBr } = props;
 
-            
-        </CartContainer>
-        
-    )
+
+  return(
+    <CartContainer>
+      <CartTitle>Carrinho</CartTitle>
+           
+      {cart.map((productInCart, index)=>{
+        return(
+          <CartList key={index}>
+          <Product>{productInCart.quantity} x {productInCart.name}</Product>
+          <Product></Product>
+          <RemoveButton onClick={()=> removeOneFromCart(productInCart.id)}>Remover</RemoveButton>
+          </CartList>
+        );
+      })}
+         
+      <Amount>Total: {getCurrencyBr(amount)}</Amount>   
+    </CartContainer>     
+  )
 }
 
 export default Cart

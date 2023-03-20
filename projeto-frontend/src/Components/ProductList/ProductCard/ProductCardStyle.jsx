@@ -2,24 +2,40 @@ import styled from "styled-components";
 
 export const ProductCardContainer = styled.div`
     border: 1px solid #FFFFFF;
-    width: 21em;
-    height: 34em;
+    width: 17em;
+    height: 27em;
     display: flex;
     flex-direction: column;
-    background-color: #3498DB ;
+    background-color: #101010 ;
+    justify-items: stretch;
+    align-items: stretch;
+`
+
+export const ImageContainer = styled.div`
+    height: 21em;
+    width: 17em;
 `
 
 export const Image = styled.img`
-    height: 24em;
-    width: 20.8em;
-    align-self: center;
+    height: 17em;
+    width: 16.9em;
+`
+
+export const NewDiv = styled.div`
+    color: white;
+    width: 100%;
+    height: 100%;
+   
+`
+
+export const Description = styled.div`
+    color: white;
 `
 
 export const PorductInfo = styled.div`
     margin: .5em 0 0em .5em;
     display: flex;
     flex-direction: column;
-    
 `
 
 export const ProductName = styled.p`
@@ -27,7 +43,6 @@ export const ProductName = styled.p`
     font-size: 1.2em;
     font-family: 'PT Sans', sans-serif;
     font-weight: 800;
-    //mix-blend-mode: difference;
 `
 
 export const ProductPrice = styled.p`
@@ -47,6 +62,6 @@ export const AddButon = styled.button`
     border-radius: .4em;
     border-color: gray;
     :hover{
-        background-color: #80808085;
+        background-color: #AEA9A9;
     }
 `

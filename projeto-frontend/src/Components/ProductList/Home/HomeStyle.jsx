@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     gap: 2em;
-    padding: 0 2em;
+    padding: 0 1em;
 `
 
 export const HeaderHome= styled.div`
@@ -38,7 +38,7 @@ export const StyledLabel = styled.label`
         margin-left: .5em;
 
         &:hover{
-            background-color: #80808085;
+            background-color: #CCC1C1;
         }
     }
 `
@@ -50,5 +50,5 @@ export const MainHome = styled.div`
     column-gap: 1.5em;
     row-gap: 1.5em;
     align-items: center;
-    justify-items: stretch;
+    justify-items: center; 
 `
