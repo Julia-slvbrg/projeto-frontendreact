@@ -36,7 +36,7 @@ export const ProductCard = (props) => {
             <ImageContainer>
             {/* <NewDiv onClick={()=>getDescriptionOrImage(newProductItem.descriptionStatus)}></NewDiv>  */}
             <Image src={productItem.imageUrl}/>
-            {/* <Description>{productItem.description}</Description> */}
+           {/*  <Description>{productItem.description}</Description> */}
             </ImageContainer>
             
             <PorductInfo>
@@ -49,3 +49,6 @@ export const ProductCard = (props) => {
 }
 
 export default ProductCard
+
+
+//modal -> CSS

@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-//import styled from "styled-components"
+import React, { useEffect, useState } from "react"
 import { GlobalStyled } from "./GlobalStyled"
 import { AppContainer, StoreContainer, AsideFilter, MainHome, AsideCart } from "./AppStyle"
 import Filters from "./Components/Filters/Filters"
@@ -64,7 +63,7 @@ function App() {
         name: "O Guia do Mochileiro das Galáxias",
         value: 254.47,
         imageUrl: "https://i.ebayimg.com/images/g/cv8AAOSwuCVgzCKQ/s-l1600.jpg",
-        description: 'O Guia com todas as informações que você pode precisar ao viajar pelas galáxias.',
+        description: 'NÃO ENTRE EM PÂNICO!! O Guia tem todas as informações que você pode precisar ao viajar pelas galáxias.',
         descriptionStatus: false
     },
     {
@@ -106,7 +105,7 @@ function App() {
   //CARRINHO
 
   const checkProductsInCart = (id) => {
-    const productInCart = cart.find(product => { //aqui foi usado o find para que o retorno seja um objeto, não um array. O find retorna a primeira coisa que dá um match com a condição, o filter retorna a coisa que deu match dentro de um array
+    const productInCart = cart.find(product => { //aqui foi usado o find para que o retorno seja um objeto, não um array. O find retorna a primeira coisa que dá um match com a condição, o filter retorna um array com a coisa que deu match dentro 
       
       if(product.id === id){
         return product
@@ -143,7 +142,7 @@ function App() {
       getTotalAmountAdding(idProduct);
     }
   };
-  
+ 
   const removeOneFromCart = (idProduct) => {
     const productInCart = checkProductsInCart(idProduct);
 
@@ -170,6 +169,23 @@ function App() {
     );
   };
 
+
+  useEffect(()=>{
+    const getProductinLocalStorage = localStorage.getItem('product');
+    if(getProductinLocalStorage){
+      return setCart(JSON.parse(getProductinLocalStorage));
+    }
+  }, []);
+
+  
+  useEffect(()=>{
+    localStorage.setItem('product', JSON.stringify(cart)); //primeiro vem o nome da chave (entre aspas), depois vem o valor (no nosso caso o array cart)
+    console.log('setItem');
+  }, [cart]);
+
+
+
+
   const getTotalAmountAdding = (idProduct) => {
     const productData = getProductDataId(idProduct);
     setAmount(amount + productData.value);
@@ -180,7 +196,7 @@ function App() {
     setAmount(Math.abs(amount - productData.value));
   };
 
-  const getCurrencyBr = (value) =>{
+  const getCurrencyBr = (value) => {
     const currency = value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
     return currency
   }
@@ -189,7 +205,7 @@ function App() {
     <AppContainer>  
       <GlobalStyled/>  
       <Header/>
-      <StoreContainer >
+      <StoreContainer>
       <AsideFilter>
         <Filters
           minFilter={minFilter}
