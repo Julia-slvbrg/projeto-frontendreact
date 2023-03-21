@@ -50,5 +50,3 @@ export const ProductCard = (props) => {
 
 export default ProductCard
 
-
-//modal -> CSS
