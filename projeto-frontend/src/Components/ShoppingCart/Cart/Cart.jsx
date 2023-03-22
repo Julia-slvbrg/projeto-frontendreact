@@ -9,7 +9,7 @@ export const Cart = (props) =>{
   return(
     <CartContainer>
       <CartTitle>Carrinho</CartTitle>
-           
+        
       {cart.map((productInCart, index)=>{
         return(
           <CartList key={index}>

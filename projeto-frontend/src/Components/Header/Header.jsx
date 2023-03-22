@@ -7,9 +7,7 @@ export const Header = () => {
         <ImageContainer>
             <Image className="imageHeader" src={imageHeader} alt="header-img"/>   
         </ImageContainer>
-
     )
-
 }
 
 export default Header

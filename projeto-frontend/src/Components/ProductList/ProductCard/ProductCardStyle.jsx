@@ -18,14 +18,25 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
     height: 17em;
-    width: 16.9em;
+    width: 16.85em;
+`
+
+export const NewDiv = styled.div`
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+   
+`
+
+export const Description = styled.div`
+    color: white;
 `
 
 export const PorductInfo = styled.div`
     margin: .5em 0 0em .5em;
     display: flex;
     flex-direction: column;
-    
 `
 
 export const ProductName = styled.p`
