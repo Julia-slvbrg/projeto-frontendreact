@@ -81,6 +81,30 @@ function App() {
         imageUrl: "https://geekyrings.com/wp-content/uploads/2020/09/hitchhiker-s-guide-to-the-gallaxy-ring-4.jpg",
         description: 'O item que você precisa para pedir uma carona, especialmente se o seu planeta estiver prestes a acabar.',
         descriptionStatus: false
+    },
+    {
+        id: 6,
+        name: "Nave Coração de Ouro",
+        value: 6180000000.0,
+        imageUrl: "http://www.oarquivo.com.br/images/stories/geral3/nave5a.png",
+        description: 'A última tecnologia em se tratando de viagens espaciais, ela pode até se tornar um ser senciente.',
+        descriptionStatus: false
+    },
+    {
+        id: 7,
+        name: "Android Paranoide Marvin",
+        value: 21479.0,
+        imageUrl: "https://www.obrigadopelospeixes.com/wp-content/uploads/2013/01/600full-the-hitchhikers-guide-to-the-galaxy-poster.jpg",
+        description: 'Ele vai ajudar você a manter a sua sanidade com muito sarcasmo e pessimismo.',
+        descriptionStatus: false
+    },
+    {
+        id: 8,
+        name: "O Drive de Improbabilidade",
+        value: 43697100.0,
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOnQ1wAWIx8QUB-PQ9dImeVFOti0T-3DGP4wBxNMi-_7GiuURD9T2h_34DAAlvJZe2vgE&usqp=CAU",
+        description: 'O que você precisa para fazer o improvável acontecer.',
+        descriptionStatus: false
     }
   ];
 
@@ -169,21 +193,26 @@ function App() {
     );
   };
 
-
-  useEffect(()=>{
-    const getProductinLocalStorage = localStorage.getItem('product');
-    if(getProductinLocalStorage){
-      return setCart(JSON.parse(getProductinLocalStorage));
-    }
+  useEffect(() => {
+    const cartLocalStorage = JSON.parse(localStorage.getItem('cart'));
+    const amountLocalStorage = JSON.parse(localStorage.getItem('amount'));
+    if (cartLocalStorage) {
+      setCart(cartLocalStorage);
+      setAmount(amountLocalStorage);
+    };
   }, []);
 
-  
-  useEffect(()=>{
-    localStorage.setItem('product', JSON.stringify(cart)); //primeiro vem o nome da chave (entre aspas), depois vem o valor (no nosso caso o array cart)
-    console.log('setItem');
+  useEffect(() => {
+    if(cart.length>0){
+      const cartToString = JSON.stringify(cart);
+      const amountToString = JSON.stringify(amount);
+      localStorage.setItem('cart', cartToString);
+      localStorage.setItem('amount', amountToString);
+    }else{
+      localStorage.removeItem('cart');
+      localStorage.removeItem('amount');
+    }
   }, [cart]);
-
-
 
 
   const getTotalAmountAdding = (idProduct) => {
