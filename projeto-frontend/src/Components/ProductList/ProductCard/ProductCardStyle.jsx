@@ -11,26 +11,9 @@ export const ProductCardContainer = styled.div`
     align-items: stretch;
 `
 
-export const ImageContainer = styled.div`
-    height: 21em;
-    width: 17em;
-`
-
 export const Image = styled.img`
     height: 17em;
     width: 16.85em;
-`
-
-export const NewDiv = styled.div`
-    color: white;
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-   
-`
-
-export const Description = styled.div`
-    color: white;
 `
 
 export const PorductInfo = styled.div`
@@ -39,11 +22,12 @@ export const PorductInfo = styled.div`
     flex-direction: column;
 `
 
-export const ProductName = styled.p`
+export const ProductName = styled.div`
     color: #FFFFFF;
     font-size: 1.2em;
     font-family: 'PT Sans', sans-serif;
     font-weight: 800;
+    height: 2.8em;
 `
 
 export const ProductPrice = styled.p`
@@ -53,7 +37,10 @@ export const ProductPrice = styled.p`
     font-weight: 400;
     margin: .5em 0 1em 0;
 `
+
 export const AddButon = styled.button`
+    /* position: relative;
+    top: 3em; */
     font-size: .85em;
     font-family: 'PT Sans', sans-serif;
     font-weight: 400;
