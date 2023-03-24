@@ -6,8 +6,7 @@ export const ProductCard = (props) => {
     
     const { productItem, addToCart, getCurrencyBr } = props;
     const [openModal, setOpenModal] = useState(false);
-   
-
+  
     return(
         <ProductCardContainer>
             
@@ -16,7 +15,7 @@ export const ProductCard = (props) => {
                 openModal={openModal} 
                 setModalOpen={() => setOpenModal(!openModal)}
                 productItem={productItem}
-            >{productItem.description}</Modal>
+            ></Modal>
             <PorductInfo>
                 <ProductName>{productItem.name}</ProductName>
                 <ProductPrice>{getCurrencyBr(productItem.value)}</ProductPrice>
@@ -27,4 +26,3 @@ export const ProductCard = (props) => {
 }
 
 export default ProductCard
-

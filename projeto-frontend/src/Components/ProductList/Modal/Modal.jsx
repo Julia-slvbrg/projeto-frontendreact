@@ -1,7 +1,8 @@
-import { Background, ModalContainer, CloseIcon, Description } from "./ModalStyle"
+import { Background, ModalContainer, CloseIcon,Name,  Description, Image } from "./ModalStyle"
 
 
-export const Modal = ({ openModal, setModalOpen, children}) => {
+export const Modal = ({ openModal, setModalOpen, productItem}) => {
+
 
     if(openModal){
         return(
@@ -13,7 +14,10 @@ export const Modal = ({ openModal, setModalOpen, children}) => {
                 >
                     close 
                 </CloseIcon>
-                <Description>{children}</Description>
+                <Name>{productItem.name}</Name> 
+                <Image src={productItem.imageUrl}/>
+                <Description>{productItem.description}</Description>
+                
                 </ModalContainer>
             
             </Background>

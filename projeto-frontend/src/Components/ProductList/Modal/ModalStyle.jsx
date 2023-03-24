@@ -16,10 +16,13 @@ export const ModalContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 150px;
+    padding: 100px;
     background-color: #fff;
     border-radius: 10px;
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const CloseIcon = styled.span`
@@ -27,15 +30,25 @@ export const CloseIcon = styled.span`
   position: fixed;
   top: 2em;
   right: 4em;
+`
+export const Name = styled.h2`
+    color: #000;
+    font-size: 2em;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+`
 
-
+export const Image = styled.img`
+    height: 35vh;
+    width: 15vw;
+    margin: 1em 0;
 `
 
 export const Description = styled.p`
     color: #000;
     font-size: 1.2em;
     font-family: 'Nunito Sans', sans-serif;
-//font-family: 'PT Sans', sans-serif;
-
-    font-weight: 600;
+    font-weight: 400;
+    text-align: center;
 `

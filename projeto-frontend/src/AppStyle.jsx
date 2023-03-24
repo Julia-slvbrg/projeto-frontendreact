@@ -14,7 +14,7 @@ export const StoreContainer = styled.div`
     border-top: 1px solid #242424;
 `
 export const AsideFilter = styled.aside`
-  grid-column: 1/2;
+    grid-column: 1/2;
 `
 export const MainHome = styled.main`
     grid-column: 2/5;
