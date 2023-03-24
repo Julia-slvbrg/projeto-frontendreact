@@ -47,7 +47,7 @@ function App() {
         name: "Toalha",
         value: 36.0,
         imageUrl: "https://images.unsplash.com/photo-1639298107851-058984903954?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=660&q=80",
-        description: 'O item que não pode faltar em nenhuma viagem espacial!!',
+        description: 'Com seu design compacto, a Toalha é fácil de transportar em qualquer lugar do universo. É o item perfeito para se proteger do frio, se secar após uma chuva intergaláctica ou simplesmente relaxar e desfrutar da vista.',
         descriptionStatus: false
     },
     {
@@ -55,7 +55,7 @@ function App() {
         name: "Kit cerveja e amendoins",
         value: 25.0,
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMrDrTWcipYhJlXWo77J22BD62AkU0N6WdBQ&usqp=CAU",
-        description: 'Jet lag depois de uma viagem? Não com um pouco de cerveja e amendoins.',
+        description: 'A combinação perfeita para combater o jet lag intergaláctico: Cerveja e Amendoim! A Cerveja é refrescante e saborosa, enquanto os Amendoins são ricos em proteínas e fibras. Juntos, são ideais para relaxar e manter-se alerta durante suas viagens pelo universo.',
         descriptionStatus: false
     },
     {
@@ -71,7 +71,7 @@ function App() {
         name: "Peixe Babel",
         value: 651.99,
         imageUrl: "https://cdn.shopify.com/s/files/1/0119/0671/1652/products/IMG_8152_1400x.JPG?v=1546712552",
-        description: 'Tradutor simultâneo de qualquer idioma em qualquer parte do universo.',
+        description: 'Animal incrível que desbloqueia as barreiras da linguagem. Insira-o no ouvido para traduzir qualquer idioma falado instantaneamente. Compacto e fácil de transportar, é a chave para se comunicar com qualquer ser vivo no universo.',
         descriptionStatus: false
     },
     {
@@ -79,7 +79,7 @@ function App() {
         name: "Dedão eletrônico",
         value: 420.0,
         imageUrl: "https://geekyrings.com/wp-content/uploads/2020/09/hitchhiker-s-guide-to-the-gallaxy-ring-4.jpg",
-        description: 'O item que você precisa para pedir uma carona, especialmente se o seu planeta estiver prestes a acabar.',
+        description: ' Dispositivo compacto e poderoso com scanner de dados, comunicação de longo alcance e armazenamento portátil. Fácil de transportar e usar em qualquer lugar, é a escolha perfeita para pegar caronas e partir para as melhores aventuras no universo.',
         descriptionStatus: false
     },
     {
@@ -87,7 +87,7 @@ function App() {
         name: "Nave Coração de Ouro",
         value: 6180000000.0,
         imageUrl: "http://www.oarquivo.com.br/images/stories/geral3/nave5a.png",
-        description: 'A última tecnologia em se tratando de viagens espaciais, ela pode até se tornar um ser senciente.',
+        description: 'Tecnologia de ponta, design elegante e conforto incomparável. Propulsão de dobra, escudos defletores e sistemas de navegação precisos permitem viagens seguras e distantes. Experimente a luxuosa atmosfera e as comodidades de primeira classe a bordo da Nave Coração de Ouro!',
         descriptionStatus: false
     },
     {
@@ -95,15 +95,15 @@ function App() {
         name: "Android Paranoide Marvin",
         value: 21479.0,
         imageUrl: "https://www.obrigadopelospeixes.com/wp-content/uploads/2013/01/600full-the-hitchhikers-guide-to-the-galaxy-poster.jpg",
-        description: 'Ele vai ajudar você a manter a sua sanidade com muito sarcasmo e pessimismo.',
+        description: 'Com inteligência artificial avançada, vasto conhecimento e um senso de humor único, Marvin é o companheiro perfeito para qualquer aventura espacial. Seu design elegante e construção durável garantem assistência confiável sempre que você precisar.',
         descriptionStatus: false
     },
     {
         id: 8,
-        name: "O Drive de Improbabilidade",
+        name: "Motor de Improbabilidade",
         value: 43697100.0,
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOnQ1wAWIx8QUB-PQ9dImeVFOti0T-3DGP4wBxNMi-_7GiuURD9T2h_34DAAlvJZe2vgE&usqp=CAU",
-        description: 'O que você precisa para fazer o improvável acontecer.',
+        description: 'Esta incrível tecnologia é capaz de manipular as leis da física e criar situações completamente impossíveis em um piscar de olhos. Com o Motor de Improbabilidade, você nunca sabe o que esperar - ele pode transportá-lo para qualquer lugar, em qualquer momento, em um instante. Ele pode até mesmo transformar objetos ou mudar a aparência de tudo ao seu redor!',
         descriptionStatus: false
     }
   ];
