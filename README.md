@@ -1,37 +1,3 @@
-
-Link deploy: https://acrid-rail.surge.sh/
-
-Link repositório: https://github.com/Julia-slvbrg/projeto-frontendreact/pull/9
-
-# E-Commerce do Mochileiro das Galáxias
-
-Esse projeto é uma loja virtual com produtos existentes no universo da história de O Guia do Mochileiro das Galáxias. As funcionalidades do site são:
-
-    - filtros de valores mínimos e máximos para os preços dos produtos;
-    
-    - filtro por nome do produto;
-    
-    - filtro em ordem crescente e decrescente para os preços do produtos;
-    
-    - adicionar e remover itens ao carrinho de compras, com a quantidade de cada produto e valor total da compra sendo exibidos no carrinho;
-    
-    - pop-up de descrição do produto quando a imagem ou o nome são clicados;
-    
-    - armazenamento do carrinho no localStorage, assim mesmo que a página seja atualizada o carrinho continua salvo.
-    
-
-Foram utilizados:
-
-    - componentes;
-    
-    - styled-components;
-    
-    - inputs controlados;
-    
-    - funções useState e useEffect.
-    
-
-
 # projeto-frontendreact
 
 Esse é o projeto de introdução aos fundamentos do React. Aqui, vamos praticar a estrutura do que consideramos a estrutura do React. O objetivo é que funcione como o front-end de um E-Commerce
