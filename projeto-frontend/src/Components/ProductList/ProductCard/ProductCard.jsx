@@ -17,7 +17,7 @@ export const ProductCard = (props) => {
                 productItem={productItem}
             ></Modal>
             <PorductInfo>
-                <ProductName>{productItem.name}</ProductName>
+                <ProductName onClick={() => setOpenModal(true)}>{productItem.name}</ProductName>
                 <ProductPrice>{getCurrencyBr(productItem.value)}</ProductPrice>
                 <AddButon onClick={()=> addToCart(productItem.id)}>Adicionar ao carrinho</AddButon>
             </PorductInfo>

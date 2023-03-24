@@ -14,6 +14,7 @@ export const ProductCardContainer = styled.div`
 export const Image = styled.img`
     height: 17em;
     width: 16.85em;
+    cursor: pointer;
 `
 
 export const PorductInfo = styled.div`
@@ -28,6 +29,7 @@ export const ProductName = styled.div`
     font-family: 'PT Sans', sans-serif;
     font-weight: 800;
     height: 2.8em;
+    cursor: pointer;
 `
 
 export const ProductPrice = styled.p`
